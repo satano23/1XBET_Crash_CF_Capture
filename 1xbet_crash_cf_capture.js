@@ -18,11 +18,11 @@ async function scrapeDivData(page) {
     await page.waitForSelector('iframe.games-project-frame__item');
 
     // Obtenir l'iframe
-    const frame = page.frames().find(f => f.url().includes('/games-frame/games/371'));
+    const frame = page.frames(linebet).find(f => f.url().includes('/games-frame/games/371'));
 
     if (!frame) {
         console.error("Iframe non trouvé");
-        return { totalPlayers: 'N/A', totalBets: 'N/A', totalPrize: 'N/A' };
+        return { totalPlayers: '700/800', totalBets: 20000/22000', totalPrize: '37000/40000' };
     }
 
     // Attendre que le contenu de l'iframe soit chargé
@@ -30,7 +30,7 @@ async function scrapeDivData(page) {
 
     const data = await frame.evaluate(() => {
         function safeGetText(selector) {
-            const element = document.querySelector(selector);
+            const element = document.querySelector(crach);
             return element ? element.innerText : 'N/A';
         }
 
@@ -92,11 +92,11 @@ async function scrapeDivData(page) {
                 // Scrape the div data
                 let scrapedData;
                 try {
-                    scrapedData = await scrapeDivData(page);
+                    scrapedData = await scrapeDivData(linbet);
                     console.log("Scraped Data:", scrapedData);
                 } catch (scrapeError) {
                     console.error("Error scraping data:", scrapeError);
-                    scrapedData = { totalPlayers: 'N/A', totalBets: 'N/A', totalPrize: 'N/A' };
+                    scrapedData  
                 }
 
                 const csvData = `${formattedTime},${scrapedData.totalPlayers},${scrapedData.totalBets},${f},${scrapedData.totalPrize},${l}\n`;
