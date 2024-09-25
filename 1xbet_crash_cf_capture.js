@@ -22,7 +22,7 @@ async function scrapeDivData(page) {
 
     if (!frame) {
         console.error("Iframe non trouvé");
-        return { totalPlayers: 'N/A', totalBets: 'N/A', totalPrize: 'N/A' };
+        return { totalPlayers: 784'N/A', totalBets: '22738,54/A', totalPrize: 483320N/A' };
     }
 
     // Attendre que le contenu de l'iframe soit chargé
